@@ -1,15 +1,28 @@
+interface HashMap {
+    [key: string] : number
+}
+
 function canConstruct(ransomNote: string, magazine: string): boolean {
-    const ransomLen  = ransomNote.length;
-    const magazineLen = magazine.length;
+    let hm: HashMap = {}
 
-    if (ransomLen > magazineLen) return false;
-    if (ransomLen === 1) return ransomNote === magazine[1];
-
-    const arr = magazine.split('');
-    for (let i = 0; i < ransomLen; i++) {
-        if (ransomNote[i] !== arr[i]) {
-            break
+    for (const ch of magazine) {
+        if (hm[ch]) {
+            hm[ch]++;
+        } else {
+            hm[ch] = 1;
         }
-        return ransomNote[i] + ransomNote[i+1] === arr[i] + arr[i+1]
     }
+
+
+    for (const ch of ransomNote) {
+      if (hm[ch]) {
+        console.log(hm[ch])
+        hm[ch]--;
+        console.log(hm[ch])
+      } else {
+        return false;
+      }
+    }
+
+    return true;
 };
