@@ -15,3 +15,11 @@ for i in range (N-2):
     answer += 1
 
 print(answer)
+
+###########################
+# slice
+###########################
+for i in range(N-1):
+    if S[i:i+3] == 'ABC':
+        answer += 1
+#############################
