@@ -19,3 +19,12 @@ for i in range(len(S)):
 
 print(answer)
 
+### 
+
+for c in S:
+  if c in 'ACGT':
+    count += 1
+    answer = max(answer, count)
+  else:
+    count = 0
+
